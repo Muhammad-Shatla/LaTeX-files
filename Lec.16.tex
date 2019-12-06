@@ -1,0 +1,159 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{subfigure}
+\usepackage{url}
+\usepackage{flafter}
+\usepackage{tikz}
+\usepackage[american]{circuitikz}
+\usepackage{pgfplots}
+
+
+\begin{document}
+\title{Lecture 16}
+\maketitle
+
+$\vec{B}=\vec{\nabla}\times\vec{A}$\\
+$\vec{\nabla}.(\vec{\nabla}\times\vec{A})=0$\\
+$x^{2}(l)+y^{2}(l)=R^{2}$\\
+So, $x=R \cos \theta$\\
+And $y=R\sin\theta$\\
+
+$\vec{A}=\hat{e_{y}}\int_{x_{0}}^{x}B_{z}(x,y,z)dx+\hat{e_{z}}\left[\int_{y_{0}}^{y}B_{x}(x_{0},y,z)dy-\int_{x_{0}}^{x}B_{y}(x,y,z)dx\right] \neq \int\vec{B}\vec{dr}$\\
+
+Now, we should prove that:
+$\vec{\nabla}\vec{A}=\vec{B}$ , $\vec{B}=-B_{x}\hat{e_{x}}+B_{y}\hat{e_{y}}+B_{z}\hat{e_{z}}$\\
+
+$(\vec{\nabla}\times \vec{A})=\frac{\partial A_{x}}{\partial z}.\frac{\partial A_{z}}{\partial x}=-\frac{\partial A_{z}}{\partial x}$\\
+
+$\frac{\partial}{\partial x}\int_{x_{0}}^{x}B_{y}(x,y,z)dx=B_{y}(x,y,z)$\\
+
+$(\vec{\nabla}\times\vec{A})_{z}=\frac{\partial A_{y}}{\partial x}-\frac{\partial A_{x}}{\partial y}=\frac{\partial A_{y}}{\partial x}$\\
+
+$\frac{\partial}{\partial x}\int_{x_{0}}^{x}B_{z}(x,y,z)dx=B_{z}(x,y,z)$\\
+
+\begin{align*}
+(\vec{\nabla}\times\vec{A})_{x} &=\frac{\partial A_{z}}{\partial y}-\frac{\partial A_{y}}{\partial z}\\
+&=\frac{\partial}{\partial y}\left[\int_{y_{0}}^{y}B_{x}(x,y,z)dy.\int_{x_{0}}^{x}B_{y}(x,y,z)dx\right]-\frac{\partial}{\partial z}\int_{x_{0}}^{x}B_{z}(x,y,z)dx\\
+&= B_{x}(x_{0},y,z)-\int_{x_{0}}^{x}\left(\frac{B_{y}}{\partial y}+\frac{\partial B_{z}}{\partial z}\right)dx\\
+\end{align*}
+\newpage
+
+$$\vec{\nabla}.\vec{B}=0 \rightarrow \mbox{So, } \frac{\partial B_{x}}{\partial x}=-\left(\frac{\partial B_{y}}{\partial y}+\frac{\partial B_{z}}{\partial z}\right)$$\\
+
+$\frac{\partial}{\partial x}\int_{x_{0}}^{x}B_{y}(x,y,z)dx+\int_{x_{0}}^{x}B_{x}(x,y,z)dx=\int_{x_{0}}^{x}\frac{d}{dx}B_{x}(x,y,z)dx$\\
+
+$\int_{x_{0}}^{x}dB_{x}(x,y,z)=B_{x}(x,y,z)-B_{x}(x_{0},y,z)$\\
+
+If $\vec{\nabla}.\vec{B}=0$\\
+$\vec{B}=\vec{\nabla}\vec{A}$\\
+$\vec{A'}=\vec{A}+\vec{\nabla}\psi$\\
+$\vec{\nabla}\times \vec{A'}=\vec{\nabla}\times
+(\vec{\nabla}+\vec{\nabla}\psi)$\\
+$\vec{\nabla}\times\vec{A'}=\vec{\nabla}\times\vec{A}=\vec{B}$\\
+$\vec{\epsilon}=\vec{\nabla}(\varphi+c)$\\
+
+\vspace{1cm}
+
+\begin{align*} 
+\vec{B} &=B_{z}\hat{e_{z}}\\
+B_{z} &=constant\\
+B_{x} &=B_{y}=0
+\end{align*}
+
+$\vec{A}=\hat{e_{y}}\int_{x=0}^{x}B_{z}(x,y,z)dx=\hat{e_{y}}B_{z}(x-x_{0})-\hat{e_{y}}B_{z}x-\hat{e_{y}}B_{z}x_{0}$\\
+
+$\vec{\nabla}\times
+(x B_{z}\hat{e_{y}})=B_{z}\hat{e_{3}}$\\
+
+$\vec{A}=x B_{z}\hat{e_{y}}$ \hspace{1cm} $\vec{A}=-y B_{z}\hat{e_{x}}$\\
+
+$$\vec{\nabla \times \vec{A'}}=\begin{vmatrix}
+\hat{e_{x}} & \hat{e_{y}} & \hat{ee_{z}}\\
+\frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z}\\
+=yB_{z} & 0 & 0
+\end{vmatrix} = \frac{\partial}{\partial y}(yB_{z})\hat{e_{z}}=B_{z}\hat{e_{z}}$$\\
+
+$\vec{A}\times
+\vec{A'}=B_{z}(x\hat{e_{y}}+y\hat{e_{x}})=\vec{\nabla
+}\psi$\\
+
+$\psi=B_{z}xy$\\
+
+$\vec{\nabla}\psi=\hat{e_{x}}\frac{\partial}{\partial x}(B_{z}xy)+\hat{e_{y}}\frac{\partial}{\partial y}(B_{z}xy)=yB_{z}\hat{e_{x}}+xB_{z}\hat{e_{y}}$\\
+
+$\vec{A}=\frac{B_{z}}{2}(x\hat{e_{y}}-y\hat{e_{z}})$\\
+
+$\vec{\nabla}.\epsilon=j/\epsilon_{0}$, $\vec{\nabla}.\vec{B}=0$, $\vec{\nabla}\times\vec{\epsilon}=-\frac{\partial\vec{B}}{\partial t}$, $\vec{\nabla}\times
+\vec{B}=\mu_{0}\epsilon_{0}\frac{\partial \vec{\epsilon}}{\partial t}+\mu_{0}\vec{j}$\\
+
+$\vec{\nabla}=q(\vec{\epsilon}+\vec{V}\times\vec{B})$\\
+
+$\epsilon=-\vec{\nabla}\phi$ , \hspace{1cm} $\vec{B}=\vec{\nabla}\times\vec{A}$\\
+
+$\vec{A'}= \vec{A}+\vec{\nabla}\psi$\\
+
+$\vec{\nabla}.\vec{A'}=\lambda+\nabla \psi=0$\\
+
+$\nabla\psi=-\lambda$,\hspace{1cm}, $\vec{\nabla}.\vec{A}=0$\\
+
+$\vec{A'}=\vec{A}+\vec{\nabla}\lambda$\\
+$\vec{\nabla}.\vec{A}=0$\\
+$\vec{\nabla}\times \vec{A'}=0=\vec{\nabla}\vec{A}+\nabla\lambda$\\
+
+ $\nabla \lambda=0$\hspace{1cm}, $\lambda=c$\\
+
+$\vec{\nabla}\times \vec{\epsilon}=0$, $\vec{\epsilon}=-\vec{\nabla}\phi$\\
+
+$\vec{\nabla}.\vec{B}=0$\\
+$\vec{B}=\vec{\nabla}\times\vec{A}
+$\\
+$\vec{\nabla}\times\vec{\epsilon}=\frac{-\partial\vec{B}}{\partial t}$ \hspace{1cm} so$\vec{\nabla}\times
+\vec{\epsilon\neq 0}$, $\vec{\epsilon}=-\vec{\nabla}\phi$\\
+
+$\vec{\nabla}\times \vec{\epsilon}=-\frac{\partial\left(\vec{\nabla}\vec{A}\right)}{\partial t}$\\
+
+$\vec{\nabla}\times
+\left(\vec{\epsilon}+\frac{\partial\vec{A}}{\partial t}\right)=0$\\
+
+$\vec{\epsilon+\frac{\partial\vec{A}}{\partial t}=-\vec{\nabla}}\phi$\\
+
+$\epsilon=-\vec{\nabla}\phi=\frac{\partial\vec{A}}{\partial t}$, $\vec{B}=\vec{\nabla}\times\vec{A}$\\
+
+$\vec{A'}=\vec{A}+\vec{\nabla}\psi(r,t)$\\
+
+$\vec{B'}=\vec{\nabla}\times\vec{A'}=\vec{\nabla}\times \vec{A}=\vec{B}$\\
+
+$\vec{E}=-\vec{\nabla}\phi-\frac{\partial A}{\partial t}-\frac{\partial}{\partial t}\nabla
+\psi$\\
+
+$\vec{B}=\vec{\nabla}\vec{A}$\\
+
+$\vec{A'}=\vec{A}+\vec{\nabla}\psi$\\
+
+$\vec{\epsilon=-\nabla\phi'-\frac{\partial A'}{\partial t}=\vec{\epsilon}}$\\
+
+$\phi'=\phi-\frac{\partial \psi}{\partial t}$\\
+
+$\vec{\epsilon'=-\vec{\nabla}}\phi'-\frac{\partial A'}{\partial t}$\\
+
+$\vec{\nabla}.\epsilon=\rho/\epsilon_{0}$\\
+
+$\vec{\nabla}\left(-\nabla\phi-\frac{\partial A}{\partial t}\right)=\rho/\epsilon_{0}$\\
+
+$-\nabla^{2}\phi.\frac{\partial}{\partial t}\vec{\nabla}.\vec{A}=\rho/\epsilon_{0}$\\
+
+$\nabla^{2}\phi=-\frac{\rho(\vec{r})}{\epsilon_{0}}$\\
+
+$\phi(\vec{r})=\frac{1}{\epsilon_{0}\pi}\int\frac{\rho(\vec{r})dv'}{|\vec{r}-\vec{r'}|}$\\
+
+$\nabla^{2}\phi-\frac{1}{c^{2}}\frac{\partial^{2}\phi}{\partial t^{2}}=\rho/\epsilon_{0}$\\
+
+$\vec{\nabla}.\vec{A}+\frac{1}{c^{2}}\frac{\partial
+\phi}{\partial t}=0$
+
+
+\end{document}

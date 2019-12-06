@@ -1,0 +1,256 @@
+\documentclass[12]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{lmodern}
+\usepackage{subfigure}
+\usepackage{url}
+\usepackage{flafter}
+\usepackage{tikz}
+\usepackage[T1]{fontenc}
+\usepackage[american]{circuitikz}
+\usepackage{pgfplots}
+
+\begin{document}
+
+\title{Lecture 11}
+\maketitle
+
+$\vec{n}.\vec{n}=1$\\
+
+$nx^{2}+ny^{2}+n_{3}^{2}=1$\\
+
+$N(\hat{e_{1}}, \hat{e_{2}}, \cdots \hat{e_{N}})$\\
+
+m 3D \\
+
+$\hat{e_{1}} \hat{e_{2}}, \hspace{2mm} \hat{e_{1}}\hat{e_{3}}, \hspace{2mm} \hat{e_{2}}\hat{e_{3}} \rightarrow \mbox{number of planes}$\\
+
+number of planes $= \frac{N(N-1)}{2}=NC_{2}$\\
+
+$s=\begin{pmatrix}
+\cos \phi & \sin \phi\\
+- \sin \phi & \cos \phi
+\end{pmatrix}$\\
+
+As $\phi
+ \rightarrow \delta \phi$\\
+ 
+ so, $s=\begin{pmatrix}
+ 1 & \delta \phi\\
+ -\delta \phi & 1
+ \end{pmatrix}$\\
+ 
+ $s=\prod + T$ \hspace{5mm} $\mbox{So, } T=\begin{pmatrix}
+ 0 & \delta \phi\\
+ -\delta \phi & 0
+ \end{pmatrix}$\\
+ 
+ $T^{\sim} =-T$\\
+ 
+ $S=\prod + T$ \hspace{5mm} $S^{T}=\prod + T^{T}$\\
+ 
+ $S^{T}S=\prod$ \hspace{5mm} to be orthogonal\\
+ 
+ So, $S^{T}S=(\prod +T)(\prod + T^{T})=\prod$\\
+ 
+ So, $\prod + T^{T} + T=\prod$ \hspace{5mm} "Working only on first order (m) this infinitesimal rotation"\\
+ 
+ How many independent parameters in $N \times N$ show symmetries $\frac{N(N-1)}{2}$\\
+ 
+ "Applying rotation n times"\\
+ $S^{n}=(\prod + T)^{n}$ \hspace{5mm} , $T=\begin{pmatrix}
+ 0 & \delta \phi\\
+ -\delta \phi & 0
+ \end{pmatrix}$\\
+ 
+ $\phi = n \delta \phi$, \hspace{5mm}, $\delta \phi=\frac{\phi}{n}$\\
+ 
+$$\lim_{n \to \infty} \left(\prod +\frac{\phi}{n}R \right)^{n} \hspace{1cm} ,R=\begin{pmatrix}
+0 & 1\\
+-1 & 0
+\end{pmatrix}$$\\
+
+$$S=\lim_{n\to\infty} \left(\prod +T \right)^{n}\hspace{1cm} , T=\delta \phi R =\frac{\phi}{n}R$$\\
+
+\begin{center}
+\includegraphics[scale=.5]{3.png}
+\end{center}
+ 
+\begin{align*}
+\vec{r} & =x\hat{e_{x}}+y\hat{e_{y}}\\
+x' & =\cos \phi x+ \sin \phi y\\
+y' & = \cos \phi y - \sin \phi x\\
+\vec{r} & =e^{i \theta}\\
+\end{align*} 
+
+$\begin{pmatrix}
+\sin \phi & \cos \phi & 0\\
+0 & 0 & 1\\
+\cos \phi & \sin \phi & 0
+\end{pmatrix} \rightarrow \begin{pmatrix}
+\cos \phi & 0 & \sin \phi\\
+0 & 1 & 0\\
+\sin \phi & 0 & \cos \phi 
+\end{pmatrix}$ \hspace{5mm} Euler Rotations\\
+\vspace{5mm}
+
+\begin{center}
+\includegraphics[scale=0.3]{4.png}
+\includegraphics[scale=0.3]{5.png}
+\end{center}
+
+\newpage
+
+
+\begin{enumerate}
+
+\item $S_{1}(\alpha)= \mbox{rotation around  $\hat{e_{3}}$ by $\alpha$}$\\
+
+$0 < \alpha \le 2\pi$
+
+$\begin{pmatrix}
+\hat{e'_{1}}\\
+\hat{e'_{2}}\\
+\hat{e'_{3}}
+\end{pmatrix}=\begin{pmatrix}
+\cos \alpha & \sin \alpha & 0\\
+-\sin \alpha & \cos \alpha & 0\\
+0 & 0 & 1
+\end{pmatrix} \begin{pmatrix}
+\hat{e_{1}}\\
+\hat{e_{2}}\\
+\hat{e_{3}}
+\end{pmatrix}
+$
+
+\item $S_{2}(\beta)= \mbox{rotation around  $\hat{e_{2}}$ counter clockwise by $\beta$}$\\
+
+$0 \le \beta <\pi$
+
+$\begin{pmatrix}
+\hat{e''_{1}}\\
+\hat{e''_{2}}\\
+\hat{e''_{3}}
+\end{pmatrix}
+=\begin{pmatrix}
+\cos \beta&0&-\sin \beta\\
+0&1&0\\
+\sin \beta&0&\cos \beta
+\end{pmatrix}
+\begin{pmatrix}
+\hat{e_{1}}\\
+\hat{e_{2}}\\
+\hat{e_{3}}
+\end{pmatrix}$\\
+
+\item $S_{3}(\gamma)= \mbox{rotation around $\hat{e''_{3}}$ by $\gamma$ counter clockwise}$\\
+
+$0 \le \gamma <2\pi$\\
+
+$\begin{pmatrix}
+\hat{e''_{1}}\\
+\hat{e''_{2}}\\
+\hat{e''_{3}}
+\end{pmatrix}=\begin{pmatrix}
+\cos \gamma&\sin \gamma&0\\
+-\sin \gamma& \cos \gamma&0\\
+0&0&1
+\end{pmatrix}\begin{pmatrix}
+\hat{e_{1}}\\
+\hat{e_{2}}\\
+\hat{e_{3}}
+\end{pmatrix}$\\
+
+\begin{center}
+\includegraphics[scale=0.5]{6.png}
+\end{center}
+
+\end{enumerate}
+
+ \paragraph*{Differential Vector Operator:}
+ 
+$\vec{r}(t)=x(t)\hat{i}+y(t)\hat{j}+z(t)\hat{k}$\\
+
+$\frac{\vec{dr}(t)}{dt}=\frac{dx(t)}{dt}\hat{i}+\frac{dy(t)}{dt}\hat{j}+\frac{dz(t)}{dt}\hat{k}   $ \\
+
+\begin{center}
+\includegraphics[scale=0.5]{7.png}
+\end{center}
+ 
+ $\frac{\vec{dr}}{dt}=\lim_{\Delta t \to 0}\frac{\vec{\Delta r}}{\Delta t}$
+ 
+ \newpage
+ 
+ $\phi (x,y,z)=$ Scalar Field\\
+ 
+ $\vec{\epsilon}=\epsilon_{x}(x,y,z)\hat{i}+\epsilon_{y}(x,y,z)\hat{j}+\epsilon_{z}(x,y,z)\hat{k}$\\
+ 
+ $d \phi= \frac{\partial \phi}{\partial x_{1}}dx_{1}+\frac{\partial \phi}{\partial x_{2}}dx_{2}+\frac{\partial \phi}{\partial x_{3}}dx_{3}$\\
+ 
+ $\vec{\nabla} \phi=\begin{pmatrix}
+ \frac{\partial \phi}{\partial x_{1}}\\
+ \frac{\partial \phi}{\partial x_{2}}\\
+ \frac{\partial \phi}{\partial x_{3}}
+ \end{pmatrix}$ \hspace{5mm} ,$\vec{dr}=\begin{pmatrix}
+ dx_{1}\\
+ dx_{2}\\
+ dx_{3}
+ \end{pmatrix}$\\
+ 
+ \vspace{1cm}
+ 
+ \begin{align*}
+ \Delta \nabla \phi & =\begin{pmatrix}
+\frac{\partial x_{1}}{\partial x'_{1}}&
+\frac{\partial x_{2}}{\partial x'_{1}}&
+\frac{\partial x_{3}}{\partial x'_{1}}\\
+\frac{\partial x_{1}}{\partial x'_{2}}&\frac{\partial x_{2}}{\partial x'_{2}}&\frac{\partial x_{3}}{\partial x'_{3}}\\
+\frac{\partial x_{1}}{\partial x'_{3}}&\frac{\partial x_{2}}{\partial x'_{3}}&\frac{\partial x_{3}}{\partial x'_{3}}
+ \end{pmatrix}
+ \begin{pmatrix}
+ \frac{\partial \phi}{\partial x_{1}}\\
+ \frac{\partial \phi}{\partial x_{2}}\\
+ \frac{\partial \phi}{\partial x_{3}}
+ \end{pmatrix}\\
+ & =\begin{pmatrix}
+ \sum_{\nu =1}^{3}&\frac{\partial \lambda_{\nu}}{\partial x'_{1}}&\frac{\partial \phi}{\partial x_{\nu}}\\
+\sum_{\mu =1}^{3}&\frac{\partial x_{\nu}}{\partial \lambda'_{2}}&\frac{\partial \phi}{\partial x_{\mu}}\\ 
+\sum_{\mu =1}^{3}&\frac{\partial x_{\nu}}{\partial x'_{3}}&\frac{\partial \phi}{\partial x_{\nu}}
+\end{pmatrix}\\
+& =\begin{pmatrix}
+\frac{\partial \phi}{\partial x'_{1}}\\
+\frac{\partial \phi}{\partial x'_{2}}\\
+\frac{\partial \phi}{\partial x'_{3}}
+\end{pmatrix}
+\end{align*}
+
+\begin{center}
+\includegraphics[scale=0.5]{8.png}
+\end{center}
+\newpage
+
+$\left(\nabla \phi\right)_{i}=\sum_{j=1}^{3} \delta_{ij}(\nabla \phi)_{j}$\\
+
+$\nabla' \phi=\frac{\partial \phi}{\partial x_{1}}\hat{_{1}}+\frac{\partial \phi}{\partial x_{2}}\hat{_{2}}+\frac{\partial \phi}{\partial x_{3}}\hat{_{3}}$\\
+
+A gradient of a pseudo scalar is a pseudo vector.\\
+
+A gradient of a real scalar is a polar vector.\\
+
+$|\vec{\nabla} \phi|=\sqrt{\left(\frac{\partial \phi}{\partial x_{1}}\right)^{2}+\left(\frac{\partial \phi}{\partial x_{2}}\right)^{2}+\left(\frac{\partial \phi}{\partial x_{3}}\right)^{2}}$\\
+
+$d \phi = \vec{\nabla} \phi
+. \vec{dr}=|\vec{\nabla} \phi||\vec{dr}|\cos \theta$ \hspace{1cm} Max. change of $\phi \rightarrow \theta =0$\\
+
+$d \phi_{max}=|\vec{\nabla \phi}||\vec{dr}|=|\vec{\nabla} \phi||\vec{dr}|\cos \theta=0$\\
+
+As $\theta =\frac{\pi}{2}$\\
+
+so, $\phi= \mbox{constant}
+\rightarrow d \phi=0$\\
+ 
+
+\end{document}

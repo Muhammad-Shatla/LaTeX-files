@@ -1,0 +1,148 @@
+\documentclass[12]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{subfigure}
+\usepackage{url}
+\usepackage{flafter}
+\usepackage{tikz}
+\usepackage[american]{circuitikz}
+\usepackage{pgfplots}
+
+
+\begin{document}
+
+\title{Lecture 15}
+\maketitle
+
+\paragraph*{Surface Integrals}
+
+\begin{center}
+\includegraphics[scale=0.5]{10.png}
+\includegraphics[scale=0.5]{11.png}
+\end{center}
+
+$\int_{s} \phi (x,y,z)\vec{d \phi}= \mbox{Vector}$
+
+\paragraph*{Volume Integrals}
+\begin{center}
+$\int_{s} \vec{A}.\vec{d \phi}= \mbox{flux of$\vec{A}$ across $S$}$\\
+$\int \vec{A} \times d \phi$\\
+$d \tau = dx dy dz$
+\end{center}
+
+\paragraph*{Integral Theorem (Gausses Theorem)}
+$\vec{A}, V$
+$\int_{V} \vec{n}.d \phi = \int_{V}(\nabla . \vec{n})d \tau$\\
+$V= \mbox{Volume}$\\
+$\partial V = \mbox{'some word' of} V$\\
+
+
+$\sum_{i}(A d \sigma_{i})=(\vec{\nabla} \vec{A}) d \tau$\\
+
+$\int_{\partial V} \vec{A}.\vec{d \phi}=\int_{V}(\nabla . \vec{A})s \tau$\\
+
+\begin{eqnarray}
+\vec{\nabla}.(u \nabla v) &=(u \nabla^{2} v + \nabla u \vec{\nabla} v)\\
+\vec{\nabla}.(v \vec{\nabla} u) &=v \nabla^{2}u+ \vec{\nabla}u \vec{\nabla}v\\
+\vec{\nabla}.(u \vec{\nabla}v-v \vec{\nabla}u) &=u \nabla^{2}u\\
+\int_{V} \vec{\nabla}.(u \vec{\nabla}v-v \vec{\nabla}u)d \tau &=\int_{V} u \nabla^{2}v - v \nabla^{2}u d \tau\\
+\int_{\partial V} (u \vec{\nabla}v - v \vec{\nabla}u).\vec{d \phi} &=\int_{V}(u \nabla^{2}v - v \nabla^{2}u)d \tau
+\end{eqnarray}
+
+$\int_{\partial V}(\vec{A}.\vec{d \varphi}) = \int_{V}(\vec{\nabla}.\vec{A})d \tau$\\
+
+$\vec{A}.(x.y.z)=\phi (x,y,z) \vec{a}$\\
+
+$\int \phi \vec{a}.\vec{d \varphi}= \int_{V} \vec{\nabla}.(\phi \vec{a})d \tau \rightarrow \vec{\nabla}. (\phi \vec{V})=\nabla \phi . V+\phi \vec{\nabla}.\vec{V}$\\
+
+$a.\int \phi \vec{d \varphi}=\int_{v}a.\vec{\nabla} \phi d \tau$\\
+
+$\vec{a}\left[\int_{\partial V}\phi \vec{d \varphi}-\int_{V}\vec{\nabla} \phi d \tau \right] = 0 \rightarrow \int_{\partial V} \phi \vec{d\varphi}=\int_{V \vec{\nabla} \phi d \tau}$\\
+
+$\vec{A}=\vec{a}\times\vec{p}$\\
+
+$\int_{\partial V}\vec{d \varphi}\times \vec{p}=\int_{V}(\vec{\nabla}\times \vec{p}d \tau) \rightarrow\int_{\partial V}(\vec{a}\times \vec{p}), d \vec{\varphi}=\int_{V}\vec{\nabla}.(\vec{a}\times \vec{p})d \tau$\\
+
+
+$\int_{\partial s}\vec{A}.\vec{dr}=\int_{s}(\vec{\nabla}\times \vec{A}). d \varphi$\\
+
+$\sum_{4 sides}\vec{A}.\vec{dr}=(\vec{\nabla} \times \vec{A}).\vec{d \varphi}$\\
+
+\begin{center}
+\includegraphics[scale=0.5]{12.png}
+\end{center}
+
+$\int_{\partial s}\vec{A}.\vec{dr}=\int(\vec{\nabla}\times\vec{A}. d \vec{\varphi})$
+
+\begin{center}
+\includegraphics[scale=0.5]{13.png}
+\end{center}
+
+\newpage
+$\partial s=0=\int_{s}(\vec{\nabla}\times \vec{A}).d \varphi$\\
+
+$\vec{V}=\vec{\nabla}\times\vec{A}$\\
+
+$\vec{\nabla}.\vec{V}=\vec{nabla}.(\vec{\nabla}\times\vec{A})=0$\\
+
+$\int_{s}\vec{v}.\vec{d \varphi}=0$\\
+
+$\vec{\nabla}\times\vec{B}=\mu_{0}\vec{j}$ \hspace{5mm}, $\vec{j}$ is current density\\
+
+$I=\int_{s}\vec{j}.d\vec{\varphi}$\\
+
+$\int_{\partial s}\vec{B}.\vec{dr}=\mu_{0}I \rightarrow \mbox{Oersted’s Law}$\\
+
+$\vec{\nabla}\times \vec{\epsilon}=-\frac{\vec{\partial B}}{\partial t}$\\
+
+$\int_{S}(\vec{\nabla}\times \vec{\epsilon}).d\varphi=-\int_{s}\frac{\partial}{\partial t}\vec{B}.\vec{d \tau}=-\frac{d}{dt}\int \vec{B}.\vec{d \tau}$\\
+
+$\int_{\partial s}\epsilon . \vec{dr} = -\frac{d}{dt}\int_{s}\vec{B}.\vec{d \varphi}=-\frac{d \Phi}{dt}S$ Faraday’s Law\\
+
+$\int_{T_{1}}^{\vec{r}}\vec{V}\vec{dr}=\int_{T_{2}}^{\vec{r}}\vec{V}.\vec{dr}$\\
+
+$\int_{\vec{r_{0}}T_{1}}\vec{V}.\vec{dr}+\int_{r_{0}T_{2}}^{\vec{r}}V\vec{dr}=0$\\
+
+$\oint_{c}\vec{V}.\vec{dr}=0=\int_{s}(\vec{\nabla}\times \vec{V}).d \varphi$\\
+
+$\vec{V}.\vec{dr}=\vec{\nabla}\phi.\vec{dr}$\\
+
+$\int_{\vec{r_{0}}}^{\vec{r}}\vec{V}.\vec{dr}=\int_{r}^{\vec{r}}d \phi$\\
+
+$\phi(\vec{r})=\int_{\vec{r_{0}}}^{\vec{r}}\vec{v}.\vec{dr}$\\
+
+$\vec{F}=-\vec{\nabla \phi}$\\
+
+$\oint_{r}\vec{F}.\vec{dr}=\oint \vec{\nabla \phi.\vec{dr}}=-\oint d \phi =\phi(\vec{r})-\phi(\vec{r_{0}})=0$\\
+
+\paragraph*{Volume Integrals}
+
+work $=\int_{\vec{r_{1}}}^{\vec{r_{2}}}\vec{F}.\vec{dr}=-\int_{\vec{r_{1}}}^{\vec{r_{2}}}\vec{nabla}\phi.\vec{dr}=-\int_{\vec{r_{1}}}^{\vec{r_{2}}}d \phi=\phi(\vec{r_{1}})-\phi(\vec{r_{2}})$\\
+
+$\vec{V}=f(r) \hat{r}$ \hspace{1cm} $\vec{\nabla}\times \vec{V}=0$\\
+
+$\phi=\int_{\vec{r_{0}}}^{\vec{r_{1}}}\vec{V}.\vec{dr}=\int_{r_{0}}^{r}f(r) dr$\\
+
+\newpage
+
+\paragraph*{Gravitational Potential\\}
+
+$$\vec{r}=-\frac{Gm_{1}m_{2}}{r^{2}}\hat{r}=-\frac{k}{r^{2}}\hat{r}$$\\
+
+$\phi(\vec{r}_{A})-\phi(\vec{u}_{B})=\int_{\vec{r}_{A}}^{\vec{r}_{B}}\vec{f}.\vec{dr}$\\
+
+$\vec{r_{B}}=\infty$,$\vec{\_{A}}=r$\\
+
+$\int_{r}^{\infty}\vec{F}.\vec{dr}=-\int_{r}^{\infty}\vec{\nabla\phi}.\vec{dr}$\\
+
+$\phi(r)=-\int_{r}^{\infty}\frac{k}{r^{2}}\hat{r}.(dr\hat{r})=-\int_{r}^{\infty}d\phi=-[\phi(\infty)-\phi(r)]$\\
+
+$$=-\int_{r}^{\infty}\frac{k}{r^2}dr=-\frac{k}{r}=\phi(r)=-\frac{Gm_{1}m_{2}}{r}$$
+
+
+\end{document}
+
+

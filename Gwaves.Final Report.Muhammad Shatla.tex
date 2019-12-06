@@ -1,0 +1,252 @@
+\documentclass[11]{article}
+
+\usepackage[margin=1in, paperwidth=8.5in, paperheight=11in]{geometry}
+\usepackage{amsfonts}
+\usepackage{courier}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{subfigure}
+\usepackage[english]{babel}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\begin{document}
+\vspace{5cm}
+\title{The Double Pendulum}
+\author{Muhammad Shatla}
+\date{\today}
+\maketitle
+\newpage
+\tableofcontents
+
+\newpage
+\section{Introduction}
+\setlength{\parindent}{5ex}
+Dynamical Systems that exhibit chaotic behavior have gained interest of scientists at the end of 19th century and the beginning of 20th century. these systems are extremely sensitive to initial conditions such that we cannot completely predict their behavior. The double pendulum system is considered a chaotic system despite of its simple structure; For small angles, a pendulum behaves like a linear system. When the angles are small in the Double Pendulum, the system behaves like the linear Double Spring; For large angles, the pendulum is non-linear, and the phase graph becomes much more complex. in this article, we are going to develop the equations of motion for the double pendulum based on the methods of Calculus of variations and solve these differential equations numerically using MATLAB. The numerical solution of the equations is based on Rung-Kutta method that will give us a sufficient approximation for the actual behavior of the double pendulum.
+   
+
+   
+   \section{The Lagrangian $(\mathcal{L})$ of the Double Pendulum }
+   
+   In Analytical Mechanics the Lagrangian $\mathcal{L}$ is defined as $$\mathcal{L}\equiv T-V$$
+   Where $T$ is the kinetic energy and $V$ is the potential energy. In order to set the lagrangian of the double pendulum system, we will use the two angles $\theta_{1}$ and $\theta_{2}$ as the generalized coordinates (Fig.1), since the system has two degrees of freedom. 
+   \\
+   \begin{center}
+\includegraphics[scale=0.7]{Capture11.png}
+\includegraphics[scale=0.7]{Capture12.png}
+\end{center}
+
+\noindent The positions of the two bobs in cartesian coordinates (Fig.2) are given by:
+\begin{align}
+x_{1}&=L_{1}\sin\theta_{1}\\
+y_{1}&=-L_{1}\cos\theta_{1}\\
+x_{2}&=L_{1}\sin\theta_{1}+L_{2}\sin\theta_{2}\\
+y_{2}&=-L_{1}\cos \theta_{1}-L_{2}\cos\theta_{2}
+\end{align}
+The Potential Energy of the system:
+\begin{align}
+V&=m_{1}gy_{1} + m_{2}gy_{2}\\
+&=-m_{1}gL_{1}\cos\theta_{1}-m_{2}g\left(L_{1}\cos\theta_{1}+L_{2}\cos\theta_{2}\right)
+\end{align}
+The Kinetic Energy:
+\begin{align}
+T&=\frac{1}{2}m_{1}\left(\dot{x_{1}}^{2}+\dot{y_{1}}^{2}\right)+\frac{1}{2}m_{2}\left(\dot{x_{2}}^{2}+\dot{y_{2}}^{2}\right)
+\end{align}
+
+Differentiating Equations (1), (2), (3) and (4):
+\begin{align}
+\dot{x_{1}}&=L_{1}\cos\theta_{1}\dot{\theta_{1}}\\
+\dot{x_{2}}&=L_{1}\cos\theta_{1}\dot{\theta_{1}}+L_{2}\cos\theta_{2}\dot{\theta_{2}}\\
+\dot{y_{1}}&=L_{1}\sin\theta_{1}\dot{\theta_{1}}\\
+\dot{y_{2}}&=L_{1}\sin\theta_{1}\dot{\theta_{1}}+L_{2}\sin\theta_{2}\dot{\theta_{2}}
+\end{align}
+So, The total kinetic energy of the system will be:
+\begin{align}
+T&=\frac{1}{2}m_{1}\dot{\theta_{1}}^{2}L_{1}^{2}+\frac{1}{2}m_{2}\left[\dot{\theta_{1}}^{2}L_{1}^{2}+\dot{\theta
+_{2}}^{2}L_{2}^{2}+2\dot{\theta_{1}}L_{1}\dot{\theta_{2}}\cos(\theta_{1}-\theta_{2}\right]
+\end{align}
+
+\noindent Finally, we can get the lagrangian $\mathcal{L}$ :
+\begin{align}
+\mathcal{L}&=\frac{1}{2}(m_{1}+m_{2})L_{1}^{2}\dot{\theta_{1}}^{2}+\frac{1}{2}m_{2}L_{2}^{2}\dot{\theta_{2}}^{2}+m_{2}L_{1}L_{2}\dot{\theta_{1}}\dot{\theta_{2}}\cos(\theta_{1}-\theta_{2})+(m_{1}+m_{2})gL_{1}\cos\theta_{1}+m_{2}gL_{2}\cos\theta_{2}
+\end{align}
+
+\section{The Equations of Motion}
+The Euler-Lagrange equation can be implemented to get the equations of motion for the system since in our analysis, we do not consider non-conservative constraint forces. Although, it is possible to extend the analysis beyond this to conclude these non-conservative forces.
+$$\frac{\partial \mathcal{L}}{\partial \theta_{i}}-\frac{d}{dt}\left(\frac{\partial \mathcal{L}}{\partial \dot{\theta_{i}}}\right)=0$$ Where $i=1,2,3,......n$ and $n$ is the number of degrees of freedom.
+
+\begin{align}
+\therefore \frac{\partial\mathcal{L}}{\partial \theta_{1}}&=-L_{1}g(m_{1}+m_{2})\sin\theta_{1}-m_{2}L_{1}L_{2}\dot{\theta_{1}}\dot{\theta_{2}}\sin(\theta_{1}-\theta_{2})\\
+\frac{\partial \mathcal{L}}{\partial\dot{\theta_{1}}}&=(m_{1}+m_{2})L_{1}^{2}\dot{\theta_{1}}+m_{2}L_{1}L_{2}\dot{\theta_{2}}\cos(\theta_{1}-\theta_{2})\\
+\frac{d}{dt}\left(\frac{\partial \mathcal{L}}{\partial \dot{\theta_{1}}}\right)&=(m_{1}+m_{2})L_{1}^{2}\ddot{\theta_{1}}+m_{2}L_{1}L_{2}\ddot{\theta_{2}}\cos(\theta_{1}-\theta_{2})-m_{2}L_{1}L_{2}\dot{\theta_{2}}\sin(\theta_{1}-\theta_{2})(\dot
+\theta_{1}-\dot{\theta_{2}})\\
+\frac{\partial \mathcal{L}}{\partial \theta_{2}}&= m_{2}L_{1}L_{2}\dot{\theta_{1}}\dot{\theta_{2}}\sin(\theta_{1}-\theta_{2})-L_{2}m_{2}g\sin\theta_{2}\\
+\frac{\partial \mathcal{L}}{\partial \dot{\theta_{2}}}&= m_{2}L_{2}^{2}\dot{\theta_{2}}+m_{2}L_{1}L_{2}\dot{\theta_{1}}\cos(\theta_{1}-\theta_{2})\\
+\frac{d}{dt}\left(\frac{\partial \mathcal{L}}{\partial \dot{\theta_{2}}}\right)&= m_{2}L_{2}^{2}\ddot{\theta_{2}}+m_{2}L_{1}L_{2}\ddot{\theta_{1}}\cos(\theta_{1}-\theta_{2})-m_{2}L_{1}L_{2}\dot{\theta_{1}}\sin(\theta_{1}-\theta_{2})(\dot{\theta_{1}}-\dot{\theta_{2}})
+\end{align}
+\noindent After simplification:
+$$\ddot{\theta_{1}}=\frac{-m_{2}L_{2}\ddot{\theta_{2}}\cos(\theta_{1}-\theta_{2})-m_{2}L_{2}\dot{\theta_{2}}^{2}\sin(\theta_{1}-\theta_{2})-(m_{1}+m_{2})g\sin\theta_{1}}{(m_{1}+m_{2})L_{1}}$$
+
+$$\ddot{\theta_{2}}=\frac{-L_{1}\ddot{\theta_{1}}\cos(\theta_{1}-\theta_{2})+L_{1}\dot{\theta_{1}}^{2}\sin(\theta_{1}-\theta_{2}-g\sin\theta_{2})}{L_{2}}$$
+
+\newpage
+
+\section{The Numerical analysis of The Equations of Motion}
+
+The previous two equations are second order partial differential equations. we can turn it into a system of firt order ordinary differential equations.\\
+
+\noindent Using the substitutions:
+\begin{align}
+z_{1} &=\theta_{1} &\Rightarrow& &\dot{z_{1}}&=\dot{\theta_{1}}\\
+z_{2}&=\theta_{2} &\Rightarrow& &\dot{z_{2}}&=\dot{\theta_{2}}\\
+z_{3}&=\dot{\theta_{1}} &\Rightarrow& &\dot{z_{3}}&=\ddot{\theta_{1}}\\
+z_{4}&=\dot{\theta_{2}} &\Rightarrow& &\dot{z_{4}}&=\ddot{\theta_{2}}
+\end{align}
+\\
+Therefore, 
+\begin{align}
+\dot{z_{1}}=\dot{\theta_{1}}\\
+\dot{z_{2}}=\dot{\theta_{2}}\\
+\end{align}
+\begin{align}
+\dot{z_{3}}=\frac{-m_{2}L_{1}z_{4}^{2}\sin(z_{1}-z_{2})\cos(z_{1}-z_{2})+m_{2}g\sin z_{2}\cos(z_{1}-z_{2})-m_{2}L_{2}z_{4}^{2}\sin(z_{1}-z_{2})-(m_{1}+m_{2})g\sin z_{1}}{L_{1}(m_{1}+m_{2})-m_{2}L_{1}\cos(z_{1}-z_{2})^2}
+\end{align}
+
+\begin{align}
+\dot{z_{4}}=\frac{m_{2}L_{2}z_{4}^{2}\sin(z_{1}-z_{2})\cos(z_{1}-z_{2})+g\sin z_{1} \cos(z_{1}-z_{2})(m_{1}+m_{2})+L_{1}z_{4}^{2}\sin(z_{1}-z_{2})(m_{1}+m_{2})-g\sin z_{2}(m_{1}+m_{2})}{L_{2}(m_{1}+m_{2})-m_{2}L_{2}\cos(z_{1}-z_{2})^{2}}
+\end{align}
+\\
+
+\noindent Solving these four equations numerically ,using the MATLAB Function \textbf{ode45} which uses the Runge-Kutta method, yields approximate solutions for $\theta_{1}$ , $\theta_{2}$ , $\dot{\theta_{1}}$ , $\dot{\theta_{2}}$.
+
+\section{The MATLAB code}
+
+\textbf{At first, we define a function that contains the four first order equations:}
+
+\begin{verbatim}
+function [ yprime ] = double_pendulum(t,y)
+yprime = zeros(4,1);
+m1 = 2;
+m2 = 1;
+L1 = 1;
+L2 = 2;
+g = 32.0;
+a = (m1+m2)*L1;
+b = m2*L2*cos(y(1)-y(3));
+c = m2*L1*cos(y(1)-y(3));
+d = m2*L2;
+e = -m2*L2*y(4)*sin(y(1)-y(3))-g*(m1+m2)*sin(y(1));
+f = m2*L1*y(2)*y(2)*sin(y(1)-y(3))-m2*g*sin(y(3));
+
+yprime(1) = y(2);
+yprime(3) = y(4);
+yprime(2) = (e*d-b*f)/(a*d-c*b);
+yprime(4) = (a*f-c*e)/(a*d-c*b);
+
+end  
+\end{verbatim}
+
+
+
+\noindent \textbf{Solving the system:}
+
+\begin{verbatim}
+function [t,x2,y2] = double_pendulum_demo(time)
+
+%set up parameters 
+m1 = 2; m2 = 1; L1 = 1; L2 = 2; g=32.0;
+
+%redefine relative tolerance
+options = odeset('RelTol',1.0e-6);
+
+%calling Runge-Kutta solver
+[t,y] = ode45('double_pendulum',[0 time],[pi;0.0;0.5;0.5],options);
+x2 = L1*sin(y(:,1))+L2*sin(y(:,3));
+y2 = -L1*cos(y(:,1))-L2*cos(y(:,3));
+plot(x2,y2);   %parametric trajectory of the outer bob
+pause;
+plot(t,y(:,1)); %theta1 Vs time
+pause;
+plot(t,y(:,3)); %theta2 Vs time
+end
+\end{verbatim}
+
+\newpage
+
+\noindent \textbf{For Initial Conditions $[\pi;0.0;0.5;0.0]$ and time $=100$}
+
+\begin{center}
+\includegraphics[scale=0.5]{para-trajectory1.jpg}
+\includegraphics[scale=0.5]{theta1(t)1.jpg}
+\includegraphics[scale=0.5]{theta2(t)1.jpg}
+\end{center}
+
+
+\newpage
+
+\noindent \textbf{For Initial Conditions $[\pi/2;\pi/3;0.5;0.0]$ and time $=100$}
+
+\begin{center}
+\includegraphics[scale=0.5]{para-trajectory2.jpg}
+\includegraphics[scale=0.5]{theta1(t)2.jpg}
+\includegraphics[scale=0.5]{theta2(t)2.jpg}
+\end{center}
+
+\newpage
+
+\noindent \textbf{For the phase space trajectory with different initial conditions:}
+\\
+
+\noindent \textbf{System of equations
+Doublependulum2.m}
+\begin{verbatim}
+%define a function that calculates the dynamics of the double pendulum
+%flag determines initial positions and velocities of the inner and outer
+%bob. 
+function xprime=doublependulum2(t,x,flag,g,l1,l2,m1,m2)
+xprime=zeros(4,1);
+xprime(1) = 6*(2*x(3)-3*cos(x(1)-x(2))*x(4))/(16-9*cos(x(1)-x(2))^2);
+xprime(2) = 6*(8*x(4)-3*cos(x(1)-x(2))*x(3))/(16-9*cos(x(1)-x(2))^2);
+xprime(3) = -(xprime(1)*xprime(2)*sin(x(1)-x(2))+3*g*sin(x(1)))/2;
+xprime(4) = -(-xprime(1)*xprime(2)*sin(x(1)-x(2))+g*sin(x(2)))/2;
+end
+\end{verbatim}
+
+\noindent \textbf{Producing the trajectory of the outer bob and angular velocity graph.m}
+
+\begin{verbatim}
+clear
+%declare time step
+T = 10;
+%y0 = [0;0;-2;0]; % close to regular
+%y0 = [pi;pi;0;0];
+% y0 = [pi;pi;.5;0]; % chaotic
+% y0=[0.5233;0;0.5233;0]%periodic
+%y0 = [0.2,0.2828,0,0]%perfect periodic with energy = 0.7809
+%y0 = [0.2,-0.2828,0,0]%perfect quasiperiodic with energy = 0.7809
+%y0 = [27.8;0;1.22;2.62] %perfect KAM scenario
+%y0 = [0,0,2,20]
+y0 = [0,0,1,20];
+%y0 =[pi;0;.5;.5];%high energy
+s=ode45(@doublependulum2,[0,T],y0,[],0,1,1,1,1);
+t = 0:0.01:T; x = deval(s,t)';
+x1=sin(x(:,1));
+y1=-cos(x(:,1));
+x2=x1+sin(x(:,2));
+y2=y1-cos(x(:,2));
+figure; plot(x2,y2); axis equal; xlabel('position');ylabel('velocity');title('trajectory');
+pause;
+plot(t,x(:,3),'magenta',t,x(:,4),'black');title('Angular velocities');
+\end{verbatim}
+
+\newpage
+
+\noindent \textbf{If we take $y0 = [0,0,1,20];$ for example, The result will be:}
+
+\begin{center}
+\includegraphics[scale=0.5]{phaseSpaceTrajectory.jpg}
+\includegraphics[scale=0.5]{AngularVelocities.jpg}
+\end{center}
+
+\end{document}

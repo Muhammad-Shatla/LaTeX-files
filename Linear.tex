@@ -1,0 +1,183 @@
+\documentclass[11]{article}
+\usepackage[margin=1in, paperwidth=8.5in, paperheight=11in]{geometry}
+\usepackage{amsfonts}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\begin{document}
+\title{Minkowski space and Special Relativity}
+\author{Muhammad Shatla \hspace {10mm} Doaa Atteya}
+\date{\today}
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+
+\section{Introduction}
+Befor Einstein introduce his postulates of special theory of relativity  the relevant mathematical foundation was already established. Actually Einstein build his theory on his professor Herman Minkowski spacetime.
+In the early 1900, after michelson-moorely experimental result that the speed of light is constant, the Gallilian transformation was not able to explain this strange but true result. Scientists need a nother transformation that can explain the constant speed of light and also, the the real life newtonian mechanics. \\
+For a complete treatment of relativistic space and time, Einstein's General Theory of Relativity is needed.
+His special theory makes one assumption that is shown to be false in the more general case: space is linear.
+In fact, many fascinating effects arise from the non-linearity of space, such as black holes and the curvature
+of the Universe. But, particularly in the absence of enormous masses, space can be closely approximated
+by linear means. This motivates a linear algebraic approach to special relativity. To proceed, we will put
+forward the postulates of special relativity, define the mathematicl terminology necessary, motivated certain
+mathematical assumptions with physical arguments, and use the power of linear algebra to deduce the Lorentz
+transformations. This paper is aimed at an audience familiar with linear algebra.
+
+\section{The three Postulates of Special Relativity}
+\begin{enumerate}
+\item All references frames are equivalent, or that no single reference frame is in any way special.
+\item The speed of light, measured in any reference frame and in any direction, is c.
+\item Equally spaced increments of space and time in one reference frame correspond to equally spaced incre-
+ments of space and time in any other reference frame.
+\end{enumerate}
+The first postulate is know as the relativity principle. The second one is a consequence of maxwell’s equations in Electrodynamic and the third one is about the homogeneity of space.
+
+\section{Essential Representations}
+
+To work with the physics of relativity in a linear algebra format,it is neccessary to define a vector space involving the space and time coordinates of our perceived reality. For physical reasons, each component of
+these vectors should have the same units. Given that in normal 3 dimensional space the units of any point
+are units of distance, it is logical to extend the time component to a distance unit by multiplying by the speed
+of light. That is, in the space-time vector space, the time like coordinate is ct, which does have the correct
+units of distance. Thus, a point in space-time with the space coordinates of $x, y, z$ and time coordinate of t
+may be represented as:
+\[
+\begin{pmatrix}
+ct\\
+x\\
+y\\
+z
+\end{pmatrix}
+\]
+\newpage
+As such, the set of all w clearly constitutes a vector space M (commonly called Minkowski Space). we need a linear transformation from M to itself that preserves the speed of light
+and homogeneity of space. This linear transformation will physically represent the conversion between two
+different reference frames, and mathematically will be an isomorphism from M to M.
+The intuitive concept of Reference Frame is obvious; 
+Mathematically, we define a reference frame to be apoint \textbf{o} in space-time withr the coordinates:
+
+$$
+0=\begin{pmatrix}
+0\\
+0\\
+0\\
+0
+\end{pmatrix}
+$$
+and we orient our three space axes such that the unit vectors in those directions, along with th time component, are defined as following:
+
+$$
+e_0=\begin{pmatrix}
+1\\
+0\\
+0\\
+0
+\end{pmatrix}
+,e_1=\begin{pmatrix}
+0\\
+1\\
+0\\
+0
+\end{pmatrix}
+,e_2=\begin{pmatrix}
+0\\
+0\\
+1\\
+0
+\end{pmatrix}
+,e_3=\begin{pmatrix}
+0\\
+0\\
+0\\
+1
+\end{pmatrix}
+$$
+The zeroth basis vector, e0, is considered time, and the other three coordinates are the traditional set.
+I will call such a reference frame S. We will denote any other reference frame moving with speed v with
+respect to S as S0. S0 has all the same properties of S (as ensured by Postulate 1),
+
+\section{Minkowski Metric}
+
+Before we get into Minkowski space, we will first talk about Minkowski metric. The formal defenition is a tensor $\eta_{\mu \nu}$ whose elements are defined by the matrix:
+\[
+\eta_{\mu \nu}=\begin{pmatrix}
+-1&0&0&0\\
+0&1&0&0\\
+0&0&1&0\\
+0&0&0&1
+\end{pmatrix} 
+\]
+
+\noindent we take the convection that $c=-1$ and the indices $\alpha$ and $\beta$ run over values (0 1 2 3), where $x^0=t$ and $(x^1,x^2,x^3)$ are the euclidean space coordinates.
+
+\noindent The Euclidean metric $g_{\mu \nu}=\begin{pmatrix}
+1&0&0\\
+0&1&0\\
+0&0&1
+\end{pmatrix}$ gives a line element:
+
+\begin{align*} 
+ds^2&=g_{\mu \nu}d x^{\mu} d x^{\nu}\\
+&=(dx^1)^2+(dx^2)^2+(dx^3)^2
+\end{align*}
+while the Minkowski metric gives its relativistic generalization, the proper time:\\
+\begin{align*}
+d\tau^2&=\eta_{\mu \nu} d x^\mu d x^\nu\\
+&=-(dx^0)^2+(dx^1)^2+(dx^2)^2+(dx^3)^2
+\end{align*}
+
+\section{Invariance of Minokowski space (spacetime)}
+In normal euclidean space $R^3$ the length from a point $(x,y,z)$ to another poin $(x',y',z')$ can be calculated from the extended Phythagorean theorem \\
+\begin{center} $L^2=(x'-x)^2+(y'-y)^2+(z'-z)^2$
+\end{center}
+Now, In Minkowski space the interval between two events is invariant despite the frame of reference we are measures from.
+So, the interval \textbf{s} between point $(x,y,z,ct)$ and pont %(x',y',z',ct')$ can be calculated 
+\begin{center}
+$s^2=(x'-x)^2+(y'-y)^2+(z'-z)^2-(ct'-ct)^2$
+\end{center}
+As a result,provided that the lorentz transformation is linear, the quadratic form can be used to define a bilinear form:
+\begin{align*}
+u.v&= \pm[c^2tt'-xx'-yy'-zz']\\
+&=u^T[\eta]v\\
+&=\eta(u,v)
+\end{align*}
+a bilinear form on a vector space V is a bilinear map V × V → K, where K is the field of scalars. In other words, a bilinear form is a function $B : V \times V \mapsto K$ that is linear in each argument separately:\\
+\begin{align*}
+B(u+v,w)&=b(u,w)+B(v,w) and B(\lambda u,v)=\lambda B(u,v)\\
+B(u,v+w)&=b(u,v)+B(u,w) and B(u,\lambda v)=\lambda B(u,v)
+\end{align*}
+
+\section{The Formal Definition of Minkowski space}
+Minkowski space is a combination of three-dimensional Euclidean space and time into a four-dimensional manifold where the spacetime interval between any two events is independent of the inertial frame of reference in which they are recorded.
+\begin{center}
+\includegraphics[scale=.5]{capture.png}
+\end{center}
+
+
+
+\section{Standard Basis}
+A standard basis for Minkowski space is a set of four mutually orthogonal vectors { e0, e1, e2, e3 } such that:\\
+\begin{center}
+$-\eta(e_0,e_0)=\eta(e_1,e_1)=\eta(e_2,e_2)=\eta(e_3,e_3)=1$
+\end{center}
+More compactly:
+\begin{center}
+$\eta(e_{\mu},e_{\nu})=\eta_{\mu \nu}$
+\end{center} 
+
+Relative to a standard basis, the components of a vector v are written $(v^0, v^1, v^2, v^3)$ where the Einstein notation is used to write v = vμeμ. The component $v^0$ is called the timelike component of v while the other three components are called the spatial components. The spatial components of a 4-vector v may be identified with a 3-vector $v = (v^1, v^2, v^3)$.
+
+\section{References}
+
+Spence Friedberg, Insel. Linear Algebra, 4/E. Pearson, 2003.\\
+
+\noindent Stover, Christopher, Weisstein and Eric W. (Minkowski Space) Retrieved From: http://mathworld.wolfram.com/MinkowskiSpace.html\\
+
+\noindent Wolfgang Rindler. Introduction to Special Relativity. Oxford University Press, 1982.
+
+
+
+
+\end{document}

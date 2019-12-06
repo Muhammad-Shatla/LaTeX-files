@@ -1,0 +1,188 @@
+\documentclass[11]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{subfigure}
+\usepackage{url}
+\usepackage{flafter}
+
+\usepackage{tikz}
+\usepackage[american]{circuitikz}
+\usepackage{pgfplots}
+\usepackage{hyperref}
+
+
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+\Large\textbf{Lecture.8}
+\end{center}
+
+\begin{itemize}
+\item Scalar Triple Product\\
+\vspace{0.3cm}
+
+$
+\vec{A}.(\vec{B}\times \vec{C})
+$
+
+\item Reciprocal Lattice\\
+
+$a= Lattice Spacing $
+\begin{center}
+\includegraphics[scale=0.5]{1.png}
+
+\end{center}
+
+\begin{equation*}
+\large
+\scalebox{1.5}{$\frac{\hbar}{2m} \frac{d^{2}\psi(x)}{dx^{2}}+V(x)\psi=\epsilon \psi$}
+\end{equation*}
+\vspace{1cm}
+
+$\psi (x) \rightarrow \psi (x+a)$\\
+
+$x \rightarrow (x+a) = y \rightarrow x=y-a$
+
+
+
+\begin{equation*}
+\begin{split}
+V(x+a)& =V(a)\\
+& =\frac{\hbar^{2}}{2} \frac{d^{2}\psi(x+a)}{d(x+a)^{2}}+V(x+a) \psi(x+a)\\
+& =\epsilon \psi(x+a)
+\end{split}
+\end{equation*}
+
+$\psi(x+na), \hspace{5mm}  n \in \mathbb{z}$\\
+
+$\int |\psi|^{2} dx = 1$\\
+
+$\psi (x+na)= \lambda \psi(x)$\\
+
+$|\psi (x+na)|^{2} = |\lambda^{2}| |\psi (x)|^{2}$\\
+
+$ so, |\lambda|^{2} =1 \rightarrow \lambda =e^{i \theta} \hspace{5mm}, \theta=0$\\
+
+\begin{equation*}
+\large
+\scalebox{1.5}{-$ \frac{\hslash^{2}}{2m} \frac{d^{2} \psi}{dx^{2}} + V(x) \psi = \epsilon \psi(x)$}
+\end{equation*}
+
+\begin{align*}
+\psi (x) & = e^{i p_{x}} U_{p}(x)  &  e^{i(p+a} U_{p}(x+a)\\
+U_{p}(x+a) & = U_{p}(x) &  & =e^{ipx} U_{p}(x)\\
+\psi(x+a) & = \psi(x)   & e^{ipx} & =1\\
+so, p & = \frac{2 \pi n}{a}\\
+If, \hspace{1cm} e^{2 i \pi p a} & =1\\
+Then, p=\frac{n}{a} \hspace{0.5cm} ,n \in \gamma
+\end{align*}
+
+\item 1D
+
+\begin{align*}
+\vec{R} & =na \hat{i}\\
+& =n \vec{a}\\
+a & =a \hat{i} (Lattice Vector)\\
+P(momentum) & =n \vec{a} \hspace{0.5cm} \vec{a'} = \frac{1}{a} \hat{i}
+\end{align*}
+
+\item 3D
+
+\begin{equation*}
+\begin{split}
+\vec{R} & = 2 \vec{a}+2 \vec{b}\\
+& =2a \hat{i}+2b \hat{j}\\
+\vec{R} & =n_{a} \vec{a}+n_{b} \vec{b}+n_{c} \vec{c}\\
+\vec{a}, \vec{b}, \vec{c} \hspace{3mm} \mbox{are the basis of the crystal lattice}
+\end{split}
+\end{equation*}
+ 
+ \begin{center}
+ \includegraphics[scale=0.5]{2.png}
+ \end{center}
+$\psi(x)=e^{i \vec{p} . \vec{r}} \hspace{2mm} \mbox{must be invariant under any lattice transformatin}$
+
+$\psi(\vec{r}+ \vec{R})= \psi( \vec{r}) \rightarrow e^{i 2 \pi \vec{p}. \vec{r}} \times e^{i 2 \pi \vec{p}. \vec{r}}$\\
+
+$e^{i 2 \pi \vec{p}. \vec{r}}=1$\\
+
+$ \vec{p}=p_{1} \vec{a'}+p_{2} \vec{b'}+p_{3} \vec{c'}$\\
+
+assume that $ \vec{R}= \vec{a}$
+$e^{i 2 \pi \vec{p}. \vec{r}}$\\
+
+so $ \vec{p}=\frac{na'}{a}=n'_{a} \vec{a'}$\\
+
+$ \vec{R}= \vec{h} \rightarrow e^{i 2 \pi \vec{p}. \vec{h}}=1$\\
+
+SO. $ \vec{P}=\frac{n'_{h}}{h}=n_{h} \vec{h''}$\\
+
+ $ \vec{R}= \vec{c} \rightarrow e^{i 2 \pi \vec{p}. \vec{c}}=1$\\
+ 
+ so, $ \vec{p}= \frac{n'_{c}}{c}=n'_{c} \vec{c'}$\\
+ 
+ $\vec{p}=n'_{a} \vec{a'}+n'_{h} \vec{h'}+n_{c} \vec{c'}$\\
+ 
+$\vec{p}. \vec{a}= n_{a}$\\ 
+ 
+ \begin{align*}
+\vec{a'}.\vec{a} & =1  & \vec{a'}.\vec{h} & =0 & \vec{a'}.\vec{c} & =0\\
+\vec{h'}.\vec{h} & =1 & \vec{h'}.\vec{a} & =0 & \vec{h'}.\vec{c} & =0\\
+\vec{c'}.\vec{c} & =1 & \vec{c'}.\vec{a} & =0 & \vec{c'}.\vec{h} & =0
+ \end{align*}
+ 
+ \newpage
+ \begin{center}
+ \begin{eqnarray*}
+& \vec{h'} \alpha (\vec{a} \times \vec{c})\\
+& \mbox{So,} \vec{h'}= \lambda ( \vec{a} \times \vec{c})\\
+& \vec{h'}. \vec{h}= \lambda ( \vec{a} \times \vec{c}). \vec{h} =1\\
+& \mbox{So, } \vec{h'}=\lambda ( \vec{a} \times \vec{c}). \vec{h} \hspace{3mm} \lambda =\frac{1}{(\vec{a} \times \vec{c}). \vec{h}}\\
+& \mbox{So,} \vec{h'}=\frac{\vec{a} \times \vec{c}}{(\vec{a} \times \vec{c}). \vec{h}} 
+ \end{eqnarray*}
+ \end{center}
+ 
+ $ \vec{c'} =\frac{(\vec{a} \times \vec{h})}{(\vec{a} \times \vec{h}. \vec{c}}$\\
+ 
+ $ \vec{a'}=\frac{(\vec{h} \times \vec{c})}{(\vec{h} \times \vec{c}. \vec{a})}
+$\\
+
+\item 
+$\vec{A} \times (\vec{B} \times \vec{C}) \neq (\vec{A} \times \vec{B}) \times \vec{C} $
+
+$(\hat{e_{1}} \times \hat{e_{1}}) \times \hat{e_{2}}=0$\\
+
+$\hat{e_{1}} \times (\hat{e_{1}} \times \hat{e_{2}})=\hat{e_{1}} \times \hat{e_{3}}=-\hat{e_{2}}$\\
+
+\item $\vec{A} \times (\vec{B} \times \vec{C})=\vec{B}(\vec{A}.\vec{C})-\vec{C}(\vec{A}.\vec{B})$
+
+$(\vec{B}\times \vec{C})_{k} = \sum_{pq} \epsilon_{kpq} B_{p} C_{q}$\\
+
+$c_{i}= \sum_{jk} \epsilon_{ijk} A_{j} B_{k}$\\
+
+$(\vec{A} \times (\vec{B} \times \vec{C}))_{i} = \sum_{jk} \epsilon_{ijk} A_{j} \epsilon_{kpq} B_{p}C_{q}$\\
+
+\begin{align*}
+\sum_{i} \hat{e_{i}}(\vec{A} \times (\vec{B} \times \vec{C}))_{i} & =\sum_{i} \hat{e_{i}} \sum_{jk} A_{j} \sum_{pq} \epsilon_{kpq} B_{p} C_{q}\\
+& =\sum_{ij} \sum_{pq} \hat{e_{i}} A_{j} B_{p} C_{q} \sum_{k} \epsilon_{ijk} \epsilon_{kpq}\\
+\sum_{k} \epsilon_{ijk} \epsilon{kpq} & =\sum_{k} \epsilon_{kij} \epsilon_{kpq} &=\delta_{ip} \delta_{jq}-\delta_{ip} \delta_{jp}\\
+& =\sum_{i} \hat{e_{i}} B_{i} \sum_{j} A_{j} C_{j}-\sum_{i} \hat{e_{i}} C_{i} \sum_{j} A_{j} B_{j}\\
+& =\vec{B}(\vec{A}. \vec{C})- \vec{c}(\vec{A}.\vec{B})
+\end{align*}
+
+
+
+
+
+ 
+ 
+
+\end{itemize}
+
+\end{titlepage}
+
+\end{document}

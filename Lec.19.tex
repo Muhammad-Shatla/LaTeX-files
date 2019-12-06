@@ -1,0 +1,146 @@
+\documentclass{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{subfigure}
+\usepackage{url}
+\usepackage{flafter}
+\usepackage{tikz}
+\usepackage[american]{circuitikz}
+\usepackage{pgfplots}
+
+
+\begin{document}
+
+\title{Lecture 19}
+\maketitle
+
+\paragraph*{Helmholtz Theorem:} \paragraph*{Theorem 1:}
+Given a vector field $\vec{P}(\vec{r})$ in a simply corrected domain with\\
+$$\vec{\nabla}.\vec{P}=S(\vec{r})$$\\
+$$\vec{\nabla}\times\vec{P}=\vec{c}(\vec{r})$$\\
+
+$P_{n}=\vec{P}.\hat{n}$\
+$S, \vec{C}, P_{n} \rightarrow \mbox{unique vector field} \hspace{5mm}\vec{P}$\
+
+\paragraph*{Theorem 2:}
+A vector field $\vec{P}$ in a simply corrected domain s.t \\
+
+$S, \vec{C}, \vec{P} \rightarrow 0$\\
+
+$\vec{P}=-\vec{\nabla}\phi+\vec{\nabla}\times
+\vec{A}$\\
+
+$\nabla_{r}^{2}=\frac{1}{r}=-4 \pi \delta(r)$\\
+
+$\nabla_{\vec{r}}^{2}\frac{1}{|\vec{r}-\vec{r'}|}=-4\pi\delta(\vec{r}-\vec{r'})$\\
+
+$\int d(\vec{r}-\vec{r'})\vec{P}(\vec{r'})d \tau'=\vec{P}(\vec{r})$\\
+
+$V(\vec{r})=-\frac{1}{4 \pi}\int\frac{\vec{P}(\vec{r'})}{|\vec{r}-\vec{r'}|}d \tau'$\\
+
+$\vec{\nabla_{r}^{2}}\vec{V}(\vec{r})=-\frac{1}{4 \pi}\int \vec{P}(\vec{r})\nabla^{2}\frac{1}{|\vec{r}-\vec{r'}|}d \tau'$\\
+
+$\nabla_{r}^{2}\vec{V}=\int\vec{P}(\vec{r'}\delta(\vec{r})-\vec{r'})d \tau'=\vec{p}(\vec{r})$\\
+
+\begin{align*}
+\vec{\nabla}\times(\vec{\nabla}\times \vec{V}(\vec{r}))&= \vec{\nabla}(\vec{\nabla}.\vec{V})-\nabla^{2}\vec{V}(\vec{r})\\
+&=\vec{\nabla}(\vec{\nabla}.\vec{V})-\vec{P}(\vec{r})
+\end{align*}
+
+$\vec{P}(\vec{r})=\vec{\nabla}(\vec{\nabla}.\vec{V})-\vec{\nabla}\times
+(\vec{\nabla}\times \vec{V})$\\
+
+$\vec{\nabla}.\vec{V}(\vec{r})=-\phi(\vec{r})$\\
+
+$\vec{\nabla}\times\vec{V}(\vec{r})=-\vec{A}(\vec{r})$\\
+
+$\vec{P}(\vec{r})=-\vec{\nabla}\phi+\vec{\nabla}\times\vec{A}$\\
+
+$\phi(\vec{r})=-\vec{\nabla_{r}}.\vec{V}(r),$ \hspace{1cm} $\vec{V}(\vec{r})=-\frac{1}{4 \pi}\int \frac{\vec{P}(\vec{r'})}{|\vec{r}-\vec{r'}|}d\tau'$\\
+
+$\phi(\vec{r})=\frac{1}{4 \pi}\int \vec{P}(\vec{r'}).\vec{\nabla}\frac{1}{|\vec{r}-\vec{r'}|}d \tau'$\\
+
+\hspace{5mm}$=-\frac{1}{4\pi}\int \vec{P}(\vec{r'}).\vec{\nabla}_{\vec{r'}}\frac{1}{|\vec{r}-\vec{r'}|}d \tau$\\
+
+$\vec{\nabla}_{\vec{r'}}.\left(\frac{\vec{P}(\vec{r'})}{|\vec{r}-\vec{r'}|}\right)=\frac{\vec{\nabla}_{\vec{r}}.\vec{P}(\vec{r'})}{|\vec{r}-\vec{r'}|}+\vec{P}(\vec{r'}).\nabla_{\vec{r}}\frac{1}{\vec{r}-\vec{r'}}$\\
+
+$\phi(\vec{r})=-\frac{1}{4\pi}\left[\int_{v}\vec{\nabla}_{\vec{r'}}.\left(\frac{\vec{P}(\vec{r'})}{|\vec{r}-\vec{r'}|}\right) d \tau'\right]$\\
+
+$\phi(\vec{r})=-\frac{1}{4\pi}\int_{\partial v}\frac{\vec{P}(\vec{r'})}{|\vec{r}\vec{r'}|}.d \vec{\varphi}+\frac{1}{4\pi}\int_{v}\frac{\vec{\nabla}_{\vec{r'}}.\vec{P}(\vec{r'})}{|\vec{r}-\vec{r'}|}d \tau'$\\
+
+so, $\phi(\vec{r})=\frac{1}{4\pi}\int\frac{\nabla_{\vec{r}}.\vec{P}(\vec{r'})}{|\vec{r}-\vec{r'}|}d\tau'$\\
+
+$\phi(\vec{r})=\frac{1}{4\pi}\int\frac{\delta(\vec{r'})d tau'}{|\vec{r}-\vec{r'}|}$\\
+
+$\vec{A}(\vec{r})=-\vec{\nabla}\times\vec{V}(\vec{r})$\\
+
+$\vec{A}(\vec{r})=\frac{1}{4\pi}\int\vec{\nabla}\times\frac{\vec{P}(\vec{r'})}{|\vec{r}-\vec{r'}|}d \tau'$\\
+
+\hspace{5mm} $\frac{1}{4\pi}\int \vec{P}(\vec{r'})\times \vec{\nabla}_{\vec{r}}\frac{1}{|\vec{r}-\vec{r'}|}d \tau'$\\
+
+$\vec{A}(\vec{r})=\frac{1}{4\pi}\int\frac{\vec{\nabla}\times
+\vec{P}(r')}{|\vec{r}-\vec{r}|}d \tau'$\\
+
+$=\frac{1}{4\pi}\int\frac{\vec{C}(\vec{r'})}{|\vec{r}-\vec{r'}|}d tau'$\\
+
+$\vec{P}=-\vec{\nabla}\phi=\vec{\nabla}\times\vec{A}$ \hspace{5mm} a generic vector field\\
+
+$\vec{\nabla}.\vec{P}=S(\vec{r})$ \hspace{5mm} $\vec{\nabla}\times\vec{P}=\vec{C}(\vec{r})$\\
+
+$\vec{\varphi}(\vec{r})=\frac{1}{4\pi}\int\frac{S(\vec{r'})}{|\vec{r}-\vec{r'}|}d tau'$ \hspace{5mm}  $\vec{A}(\vec{r})=\frac{1}{4\pi}\int \frac{\vec{C}(\vec{r'})}{|\vec{r}-\vec{r'}|}d tau'$\\
+
+$\vec{\nabla}.\vec{B}=0$, $\vec{\nabla}\times \vec{B}=\mu_{0}\vec{j}$\\
+
+$\vec{B}=\vec{\nabla}\times \vec{A}$\\
+
+$\vec{\nabla}.\vec{E}=\rho/\epsilon_{0}, \vec{\nabla}\times\vec{E}=0$\\
+
+so, $\vec{E}=-\vec{r}\vec{\phi}$\\
+
+$\vec{\nabla}.\vec{E}=\rho/\epsilon_{0}$\\
+
+$\vec{\nabla}\times\vec{E}=\frac{\partial \vec{B}}{\partial t}=\nabla\times \frac{\partial \vec{A}}{\partial t}$\\
+
+$\vec{E}=-\vec{\nabla}\phi-\frac{\partial\vec{A}}{\partial t}$\\
+
+$\vec{P}.\hat{n}=P_{n}$\\
+
+$\vec{\nabla}.\vec{P}=S(\vec{r})$, \hspace{5mm} $\vec{\nabla}\times \vec{P}=\vec{C}(\vec{r})$\\
+
+$\vec{\nabla}.\vec{P}=0$, $\vec{\nabla}\times \vec{P}=0$\\
+
+$\vec{P}=\vec{p}+\vec{p'}$ \hspace{5mm}, $\vec{P}=P_{n}$\\
+
+$\vec{\nabla}.\vec{P}=S$ \hspace{5mm}, $\vec{\nabla}\times
+\vec{P}=\vec{C}$\\
+
+$P'_{n}=0$ \hspace{5mm} $\vec{p'}=0$\\
+
+$\vec{\nabla}\times
+\vec{p'}=0$\\
+
+$\vec{p'}=-\vec{\nabla}\psi$, \hspace{5mm} $\vec{\nabla}.\vec{p'}=0$ \hspace{5mm} $-\nabla.\psi=0$\\
+
+$\int_{v}\vec{\nabla}.\left(\psi\vec{\nabla}\psi\right)=\int_{v}\psi\nabla^{2}\psi d \tau + \int \vec{\nabla} \psi . \vec{\nabla\psi d \tau}$\\
+
+$\int_{\partial v}\left(\psi\vec{\nabla}\psi d \varphi\right) =0 + \int \vec{p'}.\vec{p'}d \tau$\\
+
+$\int_{v}(\vec{p'}.\vec{p'})d \tau=0$\\
+
+
+
+$\vec{p'}=yz \hat{i}+ xz \hat{j}+yx\hat{k}$\\
+
+$\vec{\nabla}.\vec{p'}=0$, $\vec{\nabla}\times
+\vec{p'}=0$
+
+
+
+
+
+
+
+\end{document}

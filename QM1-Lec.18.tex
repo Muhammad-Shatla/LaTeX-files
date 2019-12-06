@@ -1,0 +1,197 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{physics}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{subfigure}
+\usepackage{url}
+\usepackage{flafter}
+\usepackage{tikz}
+\usepackage[american]{circuitikz}
+\usepackage[document]{ragged2e}
+\usepackage{pgfplots}
+
+
+
+
+\begin{document}
+\title{QM1-Lecture 18}
+\maketitle
+
+Wave Functions  (states of a system)\\
+
+Operators   (representing observations)\\
+
+*Mathematically\\
+
+Wave functions satisfy condition of abstract vctors\\
+
+Operators linear transformation\\
+\begin{align*}
+|\alpha\rangle=\begin{pmatrix}
+a_{1}\\
+a_{2}\\
+\vdots\\
+a_{n}
+\end{pmatrix}, \hspace{2cm} |\beta\rangle=\begin{pmatrix}
+b_{1}\\
+b_{2}\\
+\vdots\\
+b_{n}
+\end{pmatrix}\\
+\end{align*}
+\begin{align*}
+\ev{\alpha|\beta}=a_{1}^{+}b_{1}+a_{2}^{+}b_{2}+a_{3}^{+}b_{3}+\hdots\\
+\end{align*}
+\begin{align*}
+T|\alpha\rangle=\begin{pmatrix}
+T_{11}&T_{22}&\hdots&T_{1n}\\
+\vdots&\ddots&\ddots&\vdots\\
+T_{n1}&\hdots&\hdots&T_{nn}
+\end{pmatrix}\begin{pmatrix}
+a_{1}\\
+a_{2}\\
+a_{3}\\
+\vdots\\
+a_{n}
+\end{pmatrix}
+\end{align*}
+\begin{align*}
+|f_{n}\rangle=\begin{pmatrix}
+f_{n}(x_{1})\\
+f_{n}(x_{2})\\
+\vdots\\
+f_{n}(x_{n})\\
+\end{pmatrix} \hspace{2cm}|x_{i}\rangle=\begin{pmatrix}
+0\\
+0\\
+\vdots\\
+1\\
+0\\
+0\\
+0
+\end{pmatrix}
+\end{align*}
+\newpage
+$\ev{x_{i}|x_{i}}=\delta_{e_{j}} \mbox{orthogonality}$\\
+\vspace{1cm}
+$\sum_{i=1}^{n}=|x_{i}\rangle \rangle x_{i}|=\mathbb{I}$\\
+
+\begin{center}
+Completeness
+\end{center}
+
+\begin{align*}
+\intertext{$f_{n}(x_{i})\equiv$Projection of $f(x)$ onto the $|x_{i}\rangle$}\\ 
+\end{align*}
+
+\begin{align*}
+|f_{n}=\sum_{i=1}^{n}f_{n}(x_{i})|x_{i}\rangle
+\end{align*}
+ 
+For every possible discrete approximation $n$ for $F_{n}(x).g_{n}(x)$\\
+
+\begin{flushleft}
+Inner Product
+\end{flushleft} 
+
+\begin{align*}
+\ev{f_{n}|g_{n}}=\sum_{i=1}^{n}f_{n}(x_{i})g_{n}(x_{i})\\
+\end{align*}
+
+$f_{i}g$ is orthogonal $iff \ev{f_{n}|g_{n}}=0$\\
+
+if $m \rightarrow \infty$\\
+
+$f_{\infty}(x)=f(x)$ represented by $|f_{\infty}$ infinite dimension vector\\
+
+\begin{align*}
+\ev{f_{n}|g_{n}}&=\sum_{i=1}^{n}f_{n}(x_{i})g_{n}(x_{i}) \Delta\\
+\Delta &=\frac{L}{n}\\
+\ev{f_{\infty}|g_{\infty}}&=\ev{f|g}=\int_{0}^{L}f(x)g(x)dx
+\end{align*}
+\newpage
+$\rightarrow$ What are the dians vectors? $|x\rangle$ \\
+\vspace{1cm}
+Orthogonality requires \hspace{2cm}$\begin{matrix}
+\ev{x|x'}=0\\
+\ev{x|x}=1
+\end{matrix}$
+
+\begin{align*}
+\sum_{i=1}^{n}|x_{i}\rangle \langle x_{i}|&=\mathbb{I}\\
+\mbox{as $n$} \rightarrow \infty\\
+\int_{i=1}^{b=L}|x'\rangle\langle x'|dx'&=\mathbb{I}\\
+\int \ev{x|x'}\ev{x'|f}&=\int\ev{x|x'}f(x')d' \rightarrow \int\delta(x.x')f(x')dx'\\
+\ev{x|\mathbb{I}|f}&=\ev{x|f}=f(x')
+\end{align*}
+
+\vspace{1cm}
+
+What about operators?
+
+$$\hat{T}|f\rangle \rightarrow |f'\rangle$$\
+
+$$\hat{D}|f\rangle \rightarrow \mid \frac{df}{dx}\rangle$$\
+
+What are the matrix elements of $\hat{D}$?\\
+
+$\rightarrow$ det both sides with $\langle x|$\
+
+\begin{align*}
+\ev{x|\hat{D}|f}&=\ev{x|\frac{df}{d\lambda}}=\frac{df_{\lambda}}{dx}\\
+\int \ev{x|D|x'} \ev{x'|f}dx'&=\int \ev{x|D|\lambda'}f(\lambda')dx'\\
+&=\int \delta(\lambda-\lambda')\frac{d}{d\lambda'}f(x')dx'\\
+&=\frac{df(x)}{dx}
+\end{align*}
+\newpage
+*Functions satisfy conditions of linear vector space.\\
+
+$$\int|f|^{2}dx < \infty \rightarrow \mbox{Helbert Space}$$\
+
+*Operators $Q\langle x,p|$ represent observations\\
+
+$$\ev{Q}=\int\psi\hat{Q}\psi dx=\ev{\psi|\hat{Q}\psi}=\ev{\hat{Q}\psi|\psi} \rightarrow \mbox{Hermilian Operator}$$\\
+
+$\hat{Q}=\hat{Q}^{+}$\\
+
+$$\mbox{if} \ev{f|Qf}=\ev{Qf|f} \rightarrow \mbox{that implies} \ev{f|Qg}=\ev{Qf|g}$$\\
+
+*Prrof:\\
+
+$$h=f+cg \Rightarrow \ev{h|Qh}=\ev{Qh|h}$$\
+
+$$\ev{f+cg|Q(f+cg)}=\ev{Q(f+cg)|f+cg}$$\
+
+$$\ev{f+cg|Qf}+c\ev{f+cg|Qg}=\ev{Q(f+cg)|f}+c\ev{Q(f+cg)|g}$$\
+
+$$=\ev{f|Qf}+c\ev{g|Qf}+c\ev{f|Qg}+|c|-\ev{g|cg}$$\
+
+$$=\ev{Qf|f}+c\ev{Qg|f}+c\ev{Qf|g}+|c|^{2}\ev{Qg|g}$$\
+
+$$c=1$$\
+
+\begin{equation} \label{1}
+\ev{g|Qf}+\ev{f|Qg}=\ev{Qg|f}+\ev{Qf|g}
+\end{equation} 
+
+$$c=i$$
+
+\begin{equation} \label{2}
+-\ev{g|Qf}+\ev{f|Qg}=-\ev{Qg|f}+\ev{Qf|g}
+\end{equation}
+
+\begin{center}
+Adding $\ref{1}$ and $\ref{2} \rightarrow \ev{f|Qg}=\ev{Qf|g}$   
+\end{center}
+
+
+
+
+
+
+
+\end{document}

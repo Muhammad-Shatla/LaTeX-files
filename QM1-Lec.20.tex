@@ -1,0 +1,55 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{physics}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{subfigure}
+\usepackage{url}
+\usepackage{flafter}
+\usepackage{tikz}
+\usepackage[american]{circuitikz}
+\usepackage{pgfplots}
+\usepackage[margin=0.5in, paperwidth=10in, paperheight=11in]{geometry}
+
+
+
+\begin{document}
+\title{QM1-Lecture 20}
+\maketitle
+
+\begin{align*}
+\sigma_{A}^{2} \sigma_{B}^{2} &\geq \left(\frac{1}{2i}[\hat{A},\hat{B}]\right)^{2}\\
+\hat{A}f_{n}&=\lambda_{n}f_{n}\\
+f&=\sum_{n}c_{n}f_{n}\\
+[\hat{A},\hat{B}]f&=\left(\hat{A}\hat{B}-\hat{B}\hat{A}\right)\sum c_{n} f_{n}\\
+&=\hat{A}\sum_{n}c_{n}M_{n}f_{n}-\hat{B}\sum_{n}c_{n}\lambda_{n}f_{n}\\
+&=\sum_{n}c_{n}M_{n}\lambda_{n}f_{n}-\sum_{n}c_{n}\lambda_{n}M_{n}f_{n}=0, \hspace{5mm} y[\hat{A},\hat{B}]=0\\
+\hat{A}&=\hat{x},\hat{B}=\hat{p} \hspace{5mm} \Rightarrow \sigma_{\lambda}\sigma_{p} \geq \frac{\hbar}{2}\approx \Delta x \Delta p \geq \frac{\hbar}{2}\\
+\intertext{*delta means standard derivation of uncertainity of repeated measurement on identically prepared sets.}\\
+&\Delta E \Delta t \geq \frac{\hbar}{2} \rightarrow \intertext{*this has another meaning not like the previous because there is not a dynamic variable, it’s a parameter} \Delta t \intertext{means the time needed for the system to change substantially.}\\
+\intertext{Assume} \vb{\Phi}&=\ev{x,p,t}\\
+\frac{d\vb{\Phi}}{dt}&=\frac{d}{dt}\ev{\psi|\hat{q}|\psi}=\ev{\frac{\partial \psi}{\partial t}|\hat{Q}\alpha}+\ev{\psi|\frac{\partial \hat{Q}}{\partial t}\psi}+\ev{\psi|Q\frac{\partial \psi}{\partial t}}\\
+\intertext{But} i\hbar \frac{\partial \psi}{\partial t}&=\hat{H}\psi \Rightarrow \frac{\partial \psi}{\partial t}=\frac{1}{i\hbar}\hat{H}\psi\\
+\frac{d\vb{Q}}{dt}&= \ev{\frac{1}{i\hbar}H \psi | Q \psi}+\vb{\frac{\partial Q}{\partial t}}+\ev{\psi|\frac{1}{i\hbar}QH\psi}\\
+&=-\frac{1}{i\hbar}\ev{H \psi|Q \psi}+\frac{1}{i\hbar}\ev{\psi|Q H \psi}+\ev{\frac{\partial \hat{Q}}{\partial t}}\\
+\therefore \ev{H \psi| Q \psi} &= \frac{i}{\hbar}\ev{\hat{H},\hat{Q}}+\ev{\frac{\partial \hat{Q}}{\partial t}}\\
+\Rightarrow \frac{d \ev{Q}}{dt}&=\frac{i}{\hbar}\ev{[\hat{H},\hat{Q}]}+\ev{\frac{\partial \hat{Q}}{\partial t}}\\
+\mbox{if} \hspace{5mm}[\hat{H},\hat{Q}]&=0 \Rightarrow \phi  \hspace{5mm}\mbox{is conservative with time}\\
+for \hat{A}&=\hat{H}, \hspace{3mm} \hat{B}=\hat{Q} \Rightarrow \sigma_{H}^{2} \sigma_{Q}^{2} \geq \left(\frac{1}{2i} \ev{[\hat{H},\hat{Q}]}\right)^{2}, \hspace{5mm} \ev{\frac{\partial Q}{\partial t}}=0\\
+\Rightarrow \sigma_{H}^{2} \sigma_{Q}^{2} &\geq \left(\frac{1}{2i} \frac{\hbar}{i} \frac{d \vb{Q}}{dt}\right)^{2}\\
+& \geq \left(\frac{\hbar}{2}\right)^{2}\left(\frac{d\ev{Q}}{dt} \right)^{2}\\
+\Rightarrow \sigma_{H} \sigma_{Q} &= \geq \frac{\hbar}{2} |\frac{d \ev{Q}}{dt}| \hspace{5mm} \mbox{for} \Delta E = \sigma_{H}\\
+\Rightarrow \Delta t &= \frac{\sigma_{Q}}{\frac{d\ev{Q}}{dt}} \Rightarrow \Delta E \Delta t \geq \frac{\hbar}{2}\\
+\sigma_{Q} &= \frac{d \ev{Q}}{dt}\Delta t
+\end{align*}
+
+
+
+
+
+
+
+\end{document}
